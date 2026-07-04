@@ -44,3 +44,20 @@ libraries by scanning project source files.
 
 More information about PlatformIO Library Dependency Finder
 - https://docs.platformio.org/page/librarymanager/ldf.html
+# 🎮 AKINLATAUTO Simon Says Game
+
+An embedded Simon Says memory game developed using:
+
+- Arduino UNO
+- PlatformIO
+- C++
+- LCD I2C
+- 4x4 Keypad
+- LEDs
+- Passive Buzzer
+
+---
+
+## Software Flowchart
+
+![Software Flowchart](docs/Simon_Says_Software_Flowchart.png)
