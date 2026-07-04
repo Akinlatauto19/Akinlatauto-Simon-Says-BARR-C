@@ -60,4 +60,71 @@ An embedded Simon Says memory game developed using:
 
 ## Software Flowchart
 
+![Software Flowchart](docs/Simon_Says_Software_Flowchart.png)# 🎮 AKINLATAUTO Simon Says Game (BARR-C Standard)
+
+A Simon Says memory game built with **Arduino UNO** using **C++** and developed following the **BARR-C Embedded C Coding Standard**.
+
+---
+
+## 🛠 Hardware Components
+
+- Arduino UNO
+- LCD 16x2 (I2C)
+- 4×4 Matrix Keypad
+- 4 LEDs
+- Passive Buzzer
+- Push Button
+- Breadboard & Jumper Wires
+
+---
+
+## 📊 Software Flowchart
+
 ![Software Flowchart](docs/Simon_Says_Software_Flowchart.png)
+
+---
+
+## 🏗 System Architecture
+
+![System Architecture](docs/Simon_Says_System_Architecture.png)
+
+---
+
+## 🚀 Features
+
+- Random sequence generation
+- Progressive difficulty
+- LCD status display
+- Audio feedback
+- LED visual feedback
+- Keypad user input
+- BARR-C coding style
+- Modular embedded software design
+
+---
+
+## 📁 Project Structure
+
+```text
+docs/
+├── Software Flowchart
+├── System Architecture
+├── Circuit Diagram
+└── Images
+
+src/
+include/
+lib/
+test/
+```
+
+---
+
+## 👨‍💻 Author
+
+**Abdullateef Akinkunmi**
+
+Embedded Systems | C++ | Arduino | Robotics | Automotive Technology
+
+GitHub:
+https://github.com/Akinlatauto19
