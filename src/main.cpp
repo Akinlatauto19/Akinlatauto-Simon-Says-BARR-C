@@ -308,7 +308,7 @@ bool getPlayerInput()
               playTone(2, 300);
               return expectedMove == 2U;
 
-            case '4':
+            case 'A':
               flashLed(3, 300);
               playTone(3, 300);
               return expectedMove == 3U;
@@ -318,7 +318,7 @@ bool getPlayerInput()
           }
       }
 
-      return true; // No input yet
+      return false; // No input yet
 }
 
 // game over function implementation
