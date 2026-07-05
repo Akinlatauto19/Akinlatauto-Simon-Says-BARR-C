@@ -80,7 +80,18 @@ uint8_t currentLevel = 0U;
 
 uint8_t playerIndex = 0U;
 
-bool gameStarted = false;
+enum GameState
+  {
+    STANDBY,
+    SHOW_SEQUENCE,
+    WAIT_FOR_PLAYER,
+    NEXT_LEVEL,
+    GAME_OVER
+  
+  };
+
+GameState gameState = STANDBY;
+
 /*--------------------------------------------------
  * THE GAME FUNCTIONS
  *-------------------------------------------------*/
@@ -161,56 +172,91 @@ void showStandbyScreen()
  * THE GAME loop FUNCTION
  *-------------------------------------------------*/
  
-void loop() 
+void loop()
 {
-  if (!gameStarted) 
-  {
-    if (digitalRead(START_BUTTON) == LOW) 
+    switch (gameState)
     {
-      delay(200); // Debounce delay
+        //========================================
+        // WAITING FOR PLAYER TO PRESS START
+        //========================================
+        case STANDBY:
 
-      gameStarted = true;
-      currentLevel = 1U;
-      playerIndex = 0U;
-      generateNextMove();
-      playSequence();
+            if (digitalRead(START_BUTTON) == LOW)
+            {
+                delay(200);
 
+                currentLevel = 1U;
+                playerIndex = 0U;
+
+                generateNextMove();
+
+                gameState = SHOW_SEQUENCE;
+            }
+
+        break;
+
+        //========================================
+        // SHOW THE SIMON SEQUENCE
+        //========================================
+        case SHOW_SEQUENCE:
+
+            playSequence();
+
+            playerIndex = 0U;
+
+            gameState = WAIT_FOR_PLAYER;
+
+        break;
+
+        //========================================
+        // WAIT FOR PLAYER INPUT
+        //========================================
+        case WAIT_FOR_PLAYER:
+
+            if (getPlayerInput())
+            {
+                playerIndex++;
+
+                if (playerIndex >= currentLevel)
+                {
+                    gameState = NEXT_LEVEL;
+                }
+            }
+
+        break;
+
+        //========================================
+        // PREPARE NEXT LEVEL
+        //========================================
+        case NEXT_LEVEL:
+
+            currentLevel++;
+
+            if(currentLevel > MAX_SEQUENCE)
+              {
+                gameState = GAME_OVER;
+                break;
+              }
+
+            generateNextMove();
+
+            gameState = SHOW_SEQUENCE;
+
+        break;
+
+        //========================================
+        // PLAYER LOST
+        //========================================
+        case GAME_OVER:
+
+            gameOver();
+
+            showStandbyScreen();
+
+            gameState = STANDBY;
+
+        break;
     }
-  } 
-  else 
-  {
-    if (getPlayerInput()) 
-    {
-      playerIndex++;
-      
-      if (playerIndex >= currentLevel) 
-      {
-         currentLevel++;
-         playerIndex = 0U;
-        
-         generateNextMove();
-        
-         playSequence();
-      }
-    } 
-     
-  else 
-    {
-       gameOver();
-
-       Serial.println("GAME OVER");
-
-       flashLed(0, 1000);
-
-       playTone(0, 1000);
-
-       delay(1000);
-
-       showStandbyScreen();
-       
-      }
-  }
-
 }
 /*--------------------------------------------------------------------
  * THE GAME generate sequence for next level function IMPLEMENTATION
@@ -283,42 +329,56 @@ void playTone(uint8_t ledIndex, uint16_t toneDuration)
 /*-------------------------------------------------------------------------------------------
  * THE players function to get input from the keypad and check if it matches the expected move
  *--------------------------------------------------------------------------------------------*/
-bool getPlayerInput() 
+bool getPlayerInput()
 {
     char key = keypad.getKey();
 
-      if (key) 
-      {
-        uint8_t expectedMove = gameSequence[playerIndex];
+    if (!key)
+    {
+        return false;
+    }
 
-          switch (key) 
-          {
-            case '1':
-              flashLed(0, 300);
-              playTone(0, 300);
-              return expectedMove == 0U;
+    uint8_t playerMove;
 
-            case '2':
-              flashLed(1, 300);
-              playTone(1, 300);
-              return expectedMove == 1U;
+    switch(key)
+    {
+        case '1':
+            playerMove = 0U;
+        break;
 
-            case '3':
-              flashLed(2, 300);
-              playTone(2, 300);
-              return expectedMove == 2U;
+        case '2':
+            playerMove = 1U;
+        break;
 
-            case 'A':
-              flashLed(3, 300);
-              playTone(3, 300);
-              return expectedMove == 3U;
+        case '3':
+            playerMove = 2U;
+        break;
 
-            default:
-              return false;
-          }
-      }
+        case 'A':
+            playerMove = 3U;
+        break;
 
-      return false; // No input yet
+        default:
+            return false;
+    }
+
+    flashLed(playerMove,300);
+
+    playTone(playerMove,300);
+
+    if(playerMove == gameSequence[playerIndex])
+    {
+        return true;
+    }
+
+    gameState = GAME_OVER;
+
+    return false;
+
+     
+
+  GameState gameState = STANDBY;
+
 }
 
 // game over function implementation
@@ -334,12 +394,13 @@ bool getPlayerInput()
     lcd.print(currentLevel - 1U);
 
    tone(BUZZER_PIN, 200U, 1000U);
-   for(uint8_t led=0U; led<TOTAL_LEDS; led++)
+   for(uint8_t led=0U; led < TOTAL_LEDS; led++)
     {
       flashLed(led,200);
     };
 
-    gameStarted = false;
- }
+  
+ 
+}
   
   
