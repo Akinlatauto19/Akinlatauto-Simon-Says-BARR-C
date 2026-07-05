@@ -1,130 +1,89 @@
+# 🎮 Simon Says Memory Game (BARR-C Compliant)
 
-This directory is intended for project specific (private) libraries.
-PlatformIO will compile them to static libraries and link into the executable file.
+A Simon Says memory game developed with **Arduino UNO** following the **BARR-C Embedded C Coding Standard**.
 
-The source code of each library should be placed in a separate directory
-("lib/your_library_name/[Code]").
+This project demonstrates:
 
-For example, see the structure of the following example libraries `Foo` and `Bar`:
-
-|--lib
-|  |
-|  |--Bar
-|  |  |--docs
-|  |  |--examples
-|  |  |--src
-|  |     |- Bar.c
-|  |     |- Bar.h
-|  |  |- library.json (optional. for custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
-|  |
-|  |--Foo
-|  |  |- Foo.c
-|  |  |- Foo.h
-|  |
-|  |- README --> THIS FILE
-|
-|- platformio.ini
-|--src
-   |- main.c
-
-Example contents of `src/main.c` using Foo and Bar:
-```
-#include <Foo.h>
-#include <Bar.h>
-
-int main (void)
-{
-  ...
-}
-
-```
-
-The PlatformIO Library Dependency Finder will find automatically dependent
-libraries by scanning project source files.
-
-More information about PlatformIO Library Dependency Finder
-- https://docs.platformio.org/page/librarymanager/ldf.html
-# 🎮 AKINLATAUTO Simon Says Game
-
-An embedded Simon Says memory game developed using:
-
-- Arduino UNO
-- PlatformIO
-- C++
-- LCD I2C
-- 4x4 Keypad
-- LEDs
-- Passive Buzzer
+- 🟢 State Machine Programming
+- 🟢 Modular Embedded Software Design
+- 🟢 Arduino Programming
+- 🟢 4×4 Matrix Keypad
+- 🟢 I2C LCD Display
+- 🟢 LED Sequence Memory Logic
+- 🟢 Passive Buzzer Feedback
+- 🟢 Wokwi Simulation
+- 🟢 Professional Documentation
 
 ---
 
-## Software Flowchart
+# 📋 Project Flowchart
 
-![Software Flowchart](docs/Simon_Says_Software_Flowchart.png)# 🎮 AKINLATAUTO Simon Says Game (BARR-C Standard)
-
-A Simon Says memory game built with **Arduino UNO** using **C++** and developed following the **BARR-C Embedded C Coding Standard**.
+<p align="center">
+<img src="docs/Simon_Says_Flowchart.png" width="900">
+</p>
 
 ---
 
-## 🛠 Hardware Components
+# 🏗 System Architecture
+
+<p align="center">
+<img src="docs/Simon_Says_System_Architecture.png" width="900">
+</p>
+
+---
+
+# 🔌 Circuit Diagram
+
+<p align="center">
+<img src="docs/Simon_Says_Circuit_Diagram.png" width="900">
+</p>
+
+---
+
+# 🎮 Player Manual
+
+<p align="center">
+<img src="docs/Simon_Says_Player_Manual.png" width="900">
+</p>
+
+---
+
+# 🧰 Hardware Used
 
 - Arduino UNO
-- LCD 16x2 (I2C)
+- 16×2 I2C LCD
 - 4×4 Matrix Keypad
 - 4 LEDs
 - Passive Buzzer
 - Push Button
-- Breadboard & Jumper Wires
+- Breadboard
+- 330Ω Resistors
+- Jumper Wires
 
 ---
 
-## 📊 Software Flowchart
+# 💻 Software Used
 
-![Software Flowchart](docs/Simon_Says_Software_Flowchart.png)
-
----
-
-## 🏗 System Architecture
-
-![System Architecture](docs/Simon_Says_System_Architecture.png)
+- PlatformIO
+- VS Code
+- Wokwi Simulator
+- Git
+- GitHub
 
 ---
 
-## 🚀 Features
+# 🚀 Future Improvements
 
-- Random sequence generation
-- Progressive difficulty
-- LCD status display
-- Audio feedback
-- LED visual feedback
-- Keypad user input
-- BARR-C coding style
-- Modular embedded software design
-
----
-
-## 📁 Project Structure
-
-```text
-docs/
-├── Software Flowchart
-├── System Architecture
-├── Circuit Diagram
-└── Images
-
-src/
-include/
-lib/
-test/
-```
+- Score display
+- High score memory (EEPROM)
+- Difficulty selection
+- Sound effects
+- RGB LEDs
+- OLED Display
+- FreeRTOS Version
 
 ---
 
-## 👨‍💻 Author
+Designed and developed by **Akinkunmi Akindolapo**
 
-**Abdullateef Akinkunmi**
-
-Embedded Systems | C++ | Arduino | Robotics | Automotive Technology
-
-GitHub:
-https://github.com/Akinlatauto19
+*"Every project is another step toward becoming a world-class Embedded Systems Engineer."* 🚀
