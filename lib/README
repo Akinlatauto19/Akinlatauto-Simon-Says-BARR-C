@@ -47,6 +47,31 @@ This project demonstrates:
 </p>
 
 ---
+---
+
+# 📸 Project Preview
+
+## 🧪 Wokwi Simulation
+
+<p align="center">
+<img src="docs/wokwi_simulation.png" width="900">
+</p>
+
+👉 **Run the live simulation here**
+
+https://wokwi.com/projects/468799440902541313
+
+---
+
+## 🔧 Physical Hardware Prototype
+
+<p align="center">
+<img src="docs/hardware_setup.jpg" width="900">
+</p>
+
+The physical prototype was built and tested using an Arduino UNO, I2C LCD, keypad, LEDs, buzzer and push button.
+
+The hardware behaves exactly like the Wokwi simulation.
 
 # 🧰 Hardware Used
 
@@ -120,3 +145,16 @@ Try the project directly in your browser.
 https://wokwi.com/projects/468799440902541313
 
 ---
+---
+
+# 🎥 Project Demonstration
+
+## 💻 Wokwi Simulation Demo
+
+https://github.com/Akinlatauto19/Akinlatauto-Simon-Says-BARR-C/blob/main/media/wokwi_demo.mp4
+
+---
+
+## 🔌 Physical Hardware Demo
+
+https://github.com/Akinlatauto19/Akinlatauto-Simon-Says-BARR-C/blob/main/media/hardware_demo.mp4
