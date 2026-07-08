@@ -87,3 +87,36 @@ This project demonstrates:
 Designed and developed by **Akinkunmi Akindolapo**
 
 *"Every project is another step toward becoming a world-class Embedded Systems Engineer."* 🚀
+---
+
+# 🎥 Project Demonstration
+
+## 🔧 Physical Hardware Demo
+
+Watch the Simon Says game running on the real Arduino hardware.
+
+▶️ **Hardware Demo**
+
+[Hardware_Demo.mp4](media/Hardware_Demo.mp4)
+
+---
+
+## 💻 Wokwi Simulation Demo
+
+Watch the Simon Says game running in the Wokwi simulator.
+
+▶️ **Simulation Demo**
+
+[Wokwi_Demo.mp4](media/Wokwi_Demo.mp4)
+
+---
+
+# ▶️ Run the Live Simulation
+
+Try the project directly in your browser.
+
+🚀 **Launch Wokwi Simulation**
+
+https://wokwi.com/projects/468799440902541313
+
+---
